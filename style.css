@@ -26,6 +26,11 @@ body{
     color: #fff;
     font-weight: 700;
 }
+
+.equillibrium:hover{
+    color: hsl(178, 100%, 50%);
+    transform: 0.4s ease-in-out;
+}
 p{
     font-size: .6em;
     color: hsl(215, 51%, 70%)
@@ -62,9 +67,52 @@ p{
 }
 
 .image--container {
+    position: relative;
     height: 11em;
     width: 11em;
+    cursor: pointer;
 }
+
+.image--container::before {
+    border-radius: .5em;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: scale(0);
+    background-color: hsla(178, 100%, 40%, 0.493);
+    transition: transform 0.4s ease-in-out, opacity 0.3s;
+  }
+
+  .image--container:hover::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+
+  .image--container::after {
+    content: url(./images/icon-view.svg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.2s ease-in 0.1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image--container:hover::after {
+    opacity: 1;
+  }
+
 .image--container img{
     height: inherit;
     width: inherit;
@@ -86,6 +134,11 @@ p{
     font-weight: 700;
     color: #fff;
 }
+
+.info--container span:hover{
+    color: hsl(178, 100%, 50%);
+    transform: 0.4s ease-in-out;
+}
 .avatar{
     height: 2em;
     width: 2em;
@@ -94,4 +147,7 @@ p{
     background-size: contain;
     background-repeat: no-repeat;
     border: 1px solid #fff;
+}
+.ETH{
+    color: hsl(178, 100%, 50%) !important;
 }
